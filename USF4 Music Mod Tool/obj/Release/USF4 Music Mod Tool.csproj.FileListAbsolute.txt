@@ -1,0 +1,16 @@
+D:\VS2017 Projects\USF4 Music Mod Tool\USF4 Music Mod Tool\bin\Release\USF4 Music Mod Tool.exe.config
+D:\VS2017 Projects\USF4 Music Mod Tool\USF4 Music Mod Tool\bin\Release\USF4 Music Mod Tool.exe
+D:\VS2017 Projects\USF4 Music Mod Tool\USF4 Music Mod Tool\bin\Release\USF4 Music Mod Tool.pdb
+D:\VS2017 Projects\USF4 Music Mod Tool\USF4 Music Mod Tool\bin\Release\WindowsInput.dll
+D:\VS2017 Projects\USF4 Music Mod Tool\USF4 Music Mod Tool\bin\Release\WindowsInput.pdb
+D:\VS2017 Projects\USF4 Music Mod Tool\USF4 Music Mod Tool\bin\Release\WindowsInput.xml
+D:\VS2017 Projects\USF4 Music Mod Tool\USF4 Music Mod Tool\obj\Release\USF4 Music Mod Tool.csprojAssemblyReference.cache
+D:\VS2017 Projects\USF4 Music Mod Tool\USF4 Music Mod Tool\obj\Release\USF4_Music_Mod_Tool.CSBExplained.resources
+D:\VS2017 Projects\USF4 Music Mod Tool\USF4 Music Mod Tool\obj\Release\USF4_Music_Mod_Tool.Form1.resources
+D:\VS2017 Projects\USF4 Music Mod Tool\USF4 Music Mod Tool\obj\Release\USF4_Music_Mod_Tool.Instructions.resources
+D:\VS2017 Projects\USF4 Music Mod Tool\USF4 Music Mod Tool\obj\Release\USF4_Music_Mod_Tool.Properties.Resources.resources
+D:\VS2017 Projects\USF4 Music Mod Tool\USF4 Music Mod Tool\obj\Release\USF4 Music Mod Tool.csproj.GenerateResource.cache
+D:\VS2017 Projects\USF4 Music Mod Tool\USF4 Music Mod Tool\obj\Release\USF4 Music Mod Tool.csproj.CoreCompileInputs.cache
+D:\VS2017 Projects\USF4 Music Mod Tool\USF4 Music Mod Tool\obj\Release\USF4 Music Mod Tool.csproj.CopyComplete
+D:\VS2017 Projects\USF4 Music Mod Tool\USF4 Music Mod Tool\obj\Release\USF4 Music Mod Tool.exe
+D:\VS2017 Projects\USF4 Music Mod Tool\USF4 Music Mod Tool\obj\Release\USF4 Music Mod Tool.pdb
