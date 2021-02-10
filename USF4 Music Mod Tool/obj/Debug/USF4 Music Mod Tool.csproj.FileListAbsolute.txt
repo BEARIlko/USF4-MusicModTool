@@ -1,0 +1,30 @@
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\USF4 Music Mod Tool.exe.config
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\USF4 Music Mod Tool.exe
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\USF4 Music Mod Tool.pdb
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\WindowsInput.dll
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\WindowsInput.pdb
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\WindowsInput.xml
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\obj\Debug\USF4 Music Mod Tool.csprojAssemblyReference.cache
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\obj\Debug\USF4_Music_Mod_Tool.CSBExplained.resources
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\obj\Debug\USF4_Music_Mod_Tool.Form1.resources
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\obj\Debug\USF4_Music_Mod_Tool.Instructions.resources
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\obj\Debug\USF4_Music_Mod_Tool.Properties.Resources.resources
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\obj\Debug\USF4 Music Mod Tool.csproj.GenerateResource.cache
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\obj\Debug\USF4 Music Mod Tool.csproj.CoreCompileInputs.cache
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\obj\Debug\USF4 Music Mod Tool.csproj.CopyComplete
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\obj\Debug\USF4 Music Mod Tool.exe
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\obj\Debug\USF4 Music Mod Tool.pdb
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\Microsoft.Win32.Registry.dll
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\NAudio.Asio.dll
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\NAudio.Core.dll
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\NAudio.dll
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\NAudio.Midi.dll
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\NAudio.Wasapi.dll
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\NAudio.WinForms.dll
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\NAudio.WinMM.dll
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\System.Security.AccessControl.dll
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\System.Security.Principal.Windows.dll
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\Microsoft.Win32.Registry.xml
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\NAudio.xml
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\System.Security.AccessControl.xml
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Debug\System.Security.Principal.Windows.xml
