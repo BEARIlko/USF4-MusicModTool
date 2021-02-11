@@ -24,6 +24,7 @@ namespace USF4_Music_Mod_Tool
 		public const string WavFileFilter = "Wave  (.wav)|*.wav";
 		public const string CSBFileFilter = "Sound Bank (.csb)|*.csb";
 		public const string ADXFileFilter = "ADX (.adx)|*.adx";
+        private string WorkingCSBName = "temp.csb";
 
         private string WorkingStageName;
         private string StageMusicFolder;
@@ -40,7 +41,7 @@ namespace USF4_Music_Mod_Tool
         //This will strip just the working path name:
         //C:\Program Files\MyApplication
         string WorkPath;
-        string ADXPath, CSBPath, TEMPPath;
+        string ADXPath, TEMPPath;
         List<string> FilesToEncode =  new List<string>();
         
         public Form1()
@@ -79,8 +80,7 @@ namespace USF4_Music_Mod_Tool
             MainMenuMusicFolder = InstallLocation.Text + "\\patch_ae2_tu1\\ui\\sound\\bgm";
             WorkPath = Path.GetDirectoryName(strExeFilePath);
             ADXPath = WorkPath + "\\ADX";
-            CSBPath = WorkPath + "\\CSB";
-            TEMPPath = WorkPath + "\\NewCSB";
+            TEMPPath = WorkPath + "\\temp";
         }
 
         void EncodeLoadedFiles(List<string> wavs)
@@ -323,7 +323,18 @@ namespace USF4_Music_Mod_Tool
             ProcessStartInfo sEncode = new ProcessStartInfo("CSBEditor.exe", arguments);
 			var process = Process.Start(sEncode);
             process.WaitForExit();
-            MessageBox.Show("NewCSB.csb is updated with the selected ADX files.");
+
+            //Show where to save
+            saveFileDialog1.RestoreDirectory = true;
+            saveFileDialog1.FileName = "FreshNewCSB.csb";
+            saveFileDialog1.Filter = CSBFileFilter;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string filename = saveFileDialog1.FileName;
+                File.Copy(WorkingCSBName, filename);
+                //MessageBox.Show(WorkingCSBName + " is updated with the selected ADX files.");
+            }
 		}
 
 		void PickADXFile(int ADXID)

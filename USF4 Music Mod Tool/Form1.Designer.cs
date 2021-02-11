@@ -152,6 +152,7 @@
 			this.panel5 = new System.Windows.Forms.Panel();
 			this.label16 = new System.Windows.Forms.Label();
 			this.pickADXDialog = new System.Windows.Forms.OpenFileDialog();
+			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
 			((System.ComponentModel.ISupportInitialize)(this.BOS)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BOS_EXT)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.SCX)).BeginInit();
@@ -1767,6 +1768,7 @@
 		private System.Windows.Forms.Panel panel5;
 		private System.Windows.Forms.OpenFileDialog pickADXDialog;
 		private System.Windows.Forms.Label label16;
+		private System.Windows.Forms.SaveFileDialog saveFileDialog1;
 	}
 }
 

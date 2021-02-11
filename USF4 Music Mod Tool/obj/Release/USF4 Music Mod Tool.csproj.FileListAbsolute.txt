@@ -43,3 +43,4 @@ E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Release\Microsoft.Win32
 E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Release\NAudio.xml
 E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Release\System.Security.AccessControl.xml
 E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\bin\Release\System.Security.Principal.Windows.xml
+E:\BEAR GITHUB\USF4-MusicModTool\USF4 Music Mod Tool\obj\Release\USF4 Music Mod Tool.csprojAssemblyReference.cache
