@@ -332,7 +332,7 @@ namespace USF4_Music_Mod_Tool
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 string filename = saveFileDialog1.FileName;
-                File.Copy(WorkingCSBName, filename);
+                File.Copy(WorkingCSBName, filename, true);
                 //MessageBox.Show(WorkingCSBName + " is updated with the selected ADX files.");
             }
 		}
