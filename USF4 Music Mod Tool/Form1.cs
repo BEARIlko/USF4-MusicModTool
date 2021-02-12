@@ -41,7 +41,7 @@ namespace USF4_Music_Mod_Tool
         //This will strip just the working path name:
         //C:\Program Files\MyApplication
         string WorkPath;
-        string ADXPath, TEMPPath;
+        string workingPath, TEMPPath;
         List<string> FilesToEncode =  new List<string>();
         
         public Form1()
@@ -79,16 +79,16 @@ namespace USF4_Music_Mod_Tool
             StageMusicFolder = InstallLocation.Text + "\\patch_ae2_tu1\\battle\\sound\\bgm";
             MainMenuMusicFolder = InstallLocation.Text + "\\patch_ae2_tu1\\ui\\sound\\bgm";
             WorkPath = Path.GetDirectoryName(strExeFilePath);
-            ADXPath = WorkPath + "\\ADX";
+            workingPath = WorkPath + "\\working";
             TEMPPath = WorkPath + "\\temp";
         }
 
         void EncodeLoadedFiles(List<string> wavs)
         {
+           string currentWav =WorkPath + "\\CurrentWav.wav";
 	        for (int i = 0; i < wavs.Count; i++)
 	        {
-                Directory.CreateDirectory(ADXPath);
-		        string wavPath = wavs[i];
+				string wavPath = wavs[i];
 
                 //Check if it's mp3
                 if (wavPath.EndsWith(".mp3"))
@@ -99,12 +99,15 @@ namespace USF4_Music_Mod_Tool
 				}
 
                 //Waved
-		        string arguments = "\"" + wavPath + "\" \"" + ADXPath + "\"";
-		        ProcessStartInfo sEncode = new ProcessStartInfo("adxencd.exe", arguments);
+                File.Copy(wavPath, currentWav, true);
+                string ADXName = wavPath.Replace(".wav", ".adx");
+				string arguments = "CurrentWav.wav " + "\""+ ADXName  + "\"";
                 Console.WriteLine("adxencd.exe " + arguments);
+				ProcessStartInfo sEncode = new ProcessStartInfo("adxencd.exe", arguments);
 				var process = Process.Start(sEncode);
                 process.WaitForExit();
 			}
+            if (File.Exists(currentWav)) { File.Delete(currentWav); } //Cleanup
         }
 
         private void STAGECLICK(object sender, MouseEventArgs e)
@@ -309,31 +312,37 @@ namespace USF4_Music_Mod_Tool
             Directory.CreateDirectory(STG_EVENT_LowHP);
 
             //Copy target ADXs to TEMP
-            File.Copy(adxFileName1.Text, STG_EVENT_Normal + "\\Intro.adx", true);
-            File.Copy(adxFileName2.Text, STG_EVENT_Normal + "\\Loop.adx", true);
-            File.Copy(adxFileName3.Text, STG_EVENT_Ultra + "\\Intro.adx", true);
-            File.Copy(adxFileName4.Text, STG_EVENT_Ultra + "\\Loop.adx", true);
-            File.Copy(adxFileName5.Text, STG_EVENT_LowHP + "\\Intro.adx", true);
-            File.Copy(adxFileName6.Text, STG_EVENT_LowHP + "\\Loop.adx", true);
-
-            //Run CSBEditor
-           //File.Copy(@"Resources\BGM_00.csb",  WorkPath + "\\NewCreatedCSB.csb", true);
-            string arguments = string.Empty;
-            arguments = "\""+TEMPPath + "\"";
-            ProcessStartInfo sEncode = new ProcessStartInfo("CSBEditor.exe", arguments);
-			var process = Process.Start(sEncode);
-            process.WaitForExit();
-
-            //Show where to save
-            saveFileDialog1.RestoreDirectory = true;
-            saveFileDialog1.FileName = "FreshNewCSB.csb";
-            saveFileDialog1.Filter = CSBFileFilter;
-
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            try
             {
-                string filename = saveFileDialog1.FileName;
-                File.Copy(WorkingCSBName, filename, true);
-                //MessageBox.Show(WorkingCSBName + " is updated with the selected ADX files.");
+                File.Copy(adxFileName1.Text, STG_EVENT_Normal + "\\Intro.adx", true);
+                File.Copy(adxFileName2.Text, STG_EVENT_Normal + "\\Loop.adx", true);
+                File.Copy(adxFileName3.Text, STG_EVENT_Ultra + "\\Intro.adx", true);
+                File.Copy(adxFileName4.Text, STG_EVENT_Ultra + "\\Loop.adx", true);
+                File.Copy(adxFileName5.Text, STG_EVENT_LowHP + "\\Intro.adx", true);
+                File.Copy(adxFileName6.Text, STG_EVENT_LowHP + "\\Loop.adx", true);
+
+                //Run CSBEditor
+                //File.Copy(@"Resources\BGM_00.csb",  WorkPath + "\\NewCreatedCSB.csb", true);
+                string arguments = string.Empty;
+                arguments = "\"" + TEMPPath + "\"";
+                ProcessStartInfo sEncode = new ProcessStartInfo("CSBEditor.exe", arguments);
+                var process = Process.Start(sEncode);
+                process.WaitForExit();
+
+                //Show where to save
+                saveFileDialog1.RestoreDirectory = true;
+                saveFileDialog1.FileName = "FreshNewCSB.csb";
+                saveFileDialog1.Filter = CSBFileFilter;
+
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string filename = saveFileDialog1.FileName;
+                    File.Copy(WorkingCSBName, filename, true);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Cannot Create CSB! Please fill all input ADX!");
             }
 		}
 
