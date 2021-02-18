@@ -160,29 +160,39 @@ namespace USF4_Music_Mod_Tool
         
         private void SaveCSB ()
         {
-            if (WorkingStageName == "") return;
-            string FullFilename;
-            if (SelectedIsStage)
+            try
             {
-                Directory.CreateDirectory(StageMusicFolder);
-                FullFilename = StageMusicFolder + "\\" + "BGM_" + WorkingStageName + ".csb";
+                if (WorkingStageName == "") return;
+                string FullFilename;
+                if (SelectedIsStage)
+                {
+                    Directory.CreateDirectory(StageMusicFolder);
+                    FullFilename = StageMusicFolder + "\\" + "BGM_" + WorkingStageName + ".csb";
+                }
+                else
+                {
+                    Directory.CreateDirectory(MainMenuMusicFolder);
+                    FullFilename = MainMenuMusicFolder + "\\" + "BGM_" + WorkingStageName + ".csb";
+                }
+
+                if (File.Exists(FullFilename)) { File.Delete(FullFilename); }
+                File.Copy(SourceCSB.Text, FullFilename);
+                MessageBox.Show("Install Done!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
+            catch
             {
-                Directory.CreateDirectory(MainMenuMusicFolder);
-                FullFilename = MainMenuMusicFolder + "\\" + "BGM_" + WorkingStageName + ".csb";
+                MessageBox.Show("Install Failed!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-            if (File.Exists(FullFilename)) { File.Delete(FullFilename); }
-            File.Copy(SourceCSB.Text, FullFilename);
-            //MessageBox.Show("Install Done!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void InstallFile_Click(object sender, EventArgs e)
         {
+            SaveSettings();
            if (NothingSelected) { MessageBox.Show("Select a target Stage!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
             if (InstallLocation.Text == "") {MessageBox.Show("Game Install Folder is empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
            if (SourceCSB.Text == "") {MessageBox.Show("No source CSB!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
+           SetDirectory();
+            
             SaveCSB();
         }
 
