@@ -13,13 +13,14 @@ using System.Windows.Forms;
 using WindowsInput;
 using WindowsInput.Native;
 using NAudio.Wave;
+using System.Timers;
+using Timer = System.Windows.Forms.Timer;
 
 namespace USF4_Music_Mod_Tool
 {
     public partial class Form1 : Form
     {
         //File types filters
-
 		public const string TXTFileFilter = "Text file (.txt)|*.txt";
 		public const string WavFileFilter = "Wave  (.wav)|*.wav";
 		public const string CSBFileFilter = "Sound Bank (.csb)|*.csb";
@@ -40,12 +41,15 @@ namespace USF4_Music_Mod_Tool
         string strExeFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
         //This will strip just the working path name:
         //C:\Program Files\MyApplication
-        string WorkPath;
+        string exePath;
         string workingPath, TEMPPath;
         List<string> FilesToEncode =  new List<string>();
-        
+
+        private Timer RMTimer = new Timer();
+
         public Form1()
         {
+            RMTimer.Tick += new EventHandler(RMTimer_Tick);
             InitializeComponent();
             ReadSettings();
             SetDirectory();
@@ -56,7 +60,7 @@ namespace USF4_Music_Mod_Tool
         public void SaveSettings()
         {
             string settingString = "";
-            settingString = $"{InstallLocation.Text},{tbSFAM.Text}";
+            settingString = $"{InstallLocation.Text},{tbSFAM.Text},{rmSource.Text}";
             File.WriteAllText("./Settings.cfg", settingString.TrimEnd(null));
         }
 
@@ -64,12 +68,20 @@ namespace USF4_Music_Mod_Tool
         {
             if (File.Exists("./Settings.cfg"))
             {
-                string settingString = "";
-                string[] settings;
-                settingString = File.ReadAllText("./Settings.cfg").Replace(Environment.NewLine, "");
-                settings = settingString.Split(',');
-                InstallLocation.Text = settings[0];
-                tbSFAM.Text = settings[1];
+                try
+                {
+                    string settingString = "";
+                    string[] settings;
+                    settingString = File.ReadAllText("./Settings.cfg").Replace(Environment.NewLine, "");
+                    settings = settingString.Split(',');
+                    InstallLocation.Text = settings[0];
+                    tbSFAM.Text = settings[1];
+                    rmSource.Text = settings[2];
+                }
+                catch
+                {
+                    Console.WriteLine("Oppsies Config!!");
+                }
             }
         }
         #endregion Program Settings
@@ -78,14 +90,14 @@ namespace USF4_Music_Mod_Tool
         {
             StageMusicFolder = InstallLocation.Text + "\\patch_ae2_tu1\\battle\\sound\\bgm";
             MainMenuMusicFolder = InstallLocation.Text + "\\patch_ae2_tu1\\ui\\sound\\bgm";
-            WorkPath = Path.GetDirectoryName(strExeFilePath);
-            workingPath = WorkPath + "\\working";
-            TEMPPath = WorkPath + "\\temp";
+            exePath = Path.GetDirectoryName(strExeFilePath);
+            workingPath = exePath + "\\working";
+            TEMPPath = exePath + "\\temp";
         }
 
         void EncodeLoadedFiles(List<string> wavs)
         {
-           string currentWav =WorkPath + "\\CurrentWav.wav";
+           string currentWav =exePath + "\\CurrentWav.wav";
 	        for (int i = 0; i < wavs.Count; i++)
 	        {
 				string wavPath = wavs[i];
@@ -115,6 +127,7 @@ namespace USF4_Music_Mod_Tool
             PictureBox newPB = (PictureBox)sender;
             
             if (targetPB != null && newPB.Name == targetPB.Name) return;
+            chRMActive.Checked = false; RMTimer.Enabled = false;
             if (targetPB != null)
             {
                 targetPB.BorderStyle = BorderStyle.FixedSingle;
@@ -175,13 +188,65 @@ namespace USF4_Music_Mod_Tool
                     FullFilename = MainMenuMusicFolder + "\\" + "BGM_" + WorkingStageName + ".csb";
                 }
 
-                if (File.Exists(FullFilename)) { File.Delete(FullFilename); }
-                File.Copy(SourceCSB.Text, FullFilename);
+                File.Copy(SourceCSB.Text, FullFilename, true);
                 MessageBox.Show("Install Done!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
             {
                 MessageBox.Show("Install Failed!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SaveCSB2 ()
+        {
+			    if (WorkingStageName == null || WorkingStageName == "") return;
+			    string FullFilename;
+                if (SelectedIsStage)
+                {
+                    Directory.CreateDirectory(StageMusicFolder);
+                    FullFilename = StageMusicFolder + "\\" + "BGM_" + WorkingStageName + ".csb";
+                }
+                else
+                {
+                    Directory.CreateDirectory(MainMenuMusicFolder);
+                    FullFilename = MainMenuMusicFolder + "\\" + "BGM_" + WorkingStageName + ".csb";
+                }
+                string csb = GetRandomCSB();
+                if (csb == "") { Console.WriteLine("No CSB"); return; }
+                File.Copy(csb, FullFilename, true);
+                Console.WriteLine("Random CSB Swapped");
+                Console.WriteLine("Timer interval " + RMTimer.Interval);
+        }
+
+        private void DeleteCustomCSB ()
+        {
+            try
+            {
+                if (WorkingStageName == "") return;
+                string FullFilename;
+                if (SelectedIsStage)
+                {
+                    Directory.CreateDirectory(StageMusicFolder);
+                    FullFilename = StageMusicFolder + "\\" + "BGM_" + WorkingStageName + ".csb";
+                }
+                else
+                {
+                    Directory.CreateDirectory(MainMenuMusicFolder);
+                    FullFilename = MainMenuMusicFolder + "\\" + "BGM_" + WorkingStageName + ".csb";
+                }
+                if (File.Exists(FullFilename))
+                {
+                    File.Delete(FullFilename);
+                    MessageBox.Show("Uninstall Done! Stage Music should be back to default!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No Custom music found! Should be default!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Uninstall Failed!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -331,6 +396,10 @@ namespace USF4_Music_Mod_Tool
                 File.Copy(adxFileName5.Text, STG_EVENT_LowHP + "\\Intro.adx", true);
                 File.Copy(adxFileName6.Text, STG_EVENT_LowHP + "\\Loop.adx", true);
 
+                ////Write a target CSB
+                //string emptyCSB = exePath + "\"" + "temp.csb";
+                //File.WriteAllBytes
+
                 //Run CSBEditor
                 //File.Copy(@"Resources\BGM_00.csb",  WorkPath + "\\NewCreatedCSB.csb", true);
                 string arguments = string.Empty;
@@ -368,6 +437,80 @@ namespace USF4_Music_Mod_Tool
                 Controls.Find("adxFileName" + ADXID,true)[0].Text = filename;
             }
         }
+
+		private void UninstallMusicFile_Click(object sender, EventArgs e)
+		{
+            DeleteCustomCSB();
+		}
+
+		private void chRMActive_CheckedChanged(object sender, EventArgs e)
+		{
+            if (chRMActive.Checked)
+            {
+                RMTimer.Enabled = true;
+                RMTimer.Interval = (int)numRMTime.Value * 60000;
+            }
+            else
+            {
+                RMTimer.Enabled = false;
+            }
+		}
+
+        private void RMTimer_Tick(object sender, EventArgs e)
+        {
+            RandomizeMusic();
+        }
+
+        private void RandomizeMusic()
+        {
+            SaveCSB2();
+        }
+
+        public string GetRandomCSB()
+        {
+            string RandomCSB = "";
+            List<string> CSBFiles = new List<string>();
+            string[] Files = Directory.GetFiles(rmSource.Text);
+
+            foreach (string file in Files)
+            {
+                string ext = Path.GetExtension(file);
+                if (ext.ToLower().Equals(".csb"))
+                {
+                    CSBFiles.Add(file);
+                }
+            }
+
+            if (CSBFiles.Count > 0)
+            {
+                var Rand = new Random();
+                int RandomIndex = Rand.Next(0, CSBFiles.Count);
+                RandomCSB = CSBFiles[RandomIndex];
+            }
+            return RandomCSB;
+        }
+
+		private void btnSetRMFolderSource_Click(object sender, EventArgs e)
+		{
+            folderPicker.ShowNewFolderButton = false;
+            folderPicker.ShowDialog();
+            if (folderPicker.SelectedPath != "")
+            {
+                CSBsSourceFolder = folderPicker.SelectedPath;
+                rmSource.Text = CSBsSourceFolder;
+                SaveSettings();
+            }
+		}
+
+		private void numRMTime_ValueChanged(object sender, EventArgs e)
+		{
+            RMTimer.Interval = (int)numRMTime.Value * 60000;
+            if (RMTimer.Enabled)
+            {
+                RMTimer.Enabled = false;
+                RMTimer.Enabled = true;
+            }
+		}
 
 		private void btnLoadADX_Click(object sender, EventArgs e)
 		{

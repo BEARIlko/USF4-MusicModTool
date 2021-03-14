@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.label1 = new System.Windows.Forms.Label();
 			this.InstallLocation = new System.Windows.Forms.TextBox();
 			this.PickGameDir = new System.Windows.Forms.Button();
@@ -125,6 +126,8 @@
 			this.adxFileName2 = new System.Windows.Forms.TextBox();
 			this.btnCreateCSB = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.label22 = new System.Windows.Forms.Label();
+			this.label18 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
@@ -150,7 +153,20 @@
 			this.adxFileName4 = new System.Windows.Forms.TextBox();
 			this.pickADX4 = new System.Windows.Forms.Button();
 			this.panel5 = new System.Windows.Forms.Panel();
+			this.panel6 = new System.Windows.Forms.Panel();
+			this.label23 = new System.Windows.Forms.Label();
+			this.panel8 = new System.Windows.Forms.Panel();
+			this.label21 = new System.Windows.Forms.Label();
+			this.label20 = new System.Windows.Forms.Label();
+			this.numRMTime = new System.Windows.Forms.NumericUpDown();
+			this.chRMActive = new System.Windows.Forms.CheckBox();
+			this.btnSetRMFolderSource = new System.Windows.Forms.Button();
+			this.rmSource = new System.Windows.Forms.TextBox();
+			this.label17 = new System.Windows.Forms.Label();
+			this.panel7 = new System.Windows.Forms.Panel();
+			this.label19 = new System.Windows.Forms.Label();
 			this.label16 = new System.Windows.Forms.Label();
+			this.UninstallMusicFile = new System.Windows.Forms.Button();
 			this.pickADXDialog = new System.Windows.Forms.OpenFileDialog();
 			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
 			((System.ComponentModel.ISupportInitialize)(this.BOS)).BeginInit();
@@ -194,6 +210,10 @@
 			this.panel4.SuspendLayout();
 			this.panel3.SuspendLayout();
 			this.panel5.SuspendLayout();
+			this.panel6.SuspendLayout();
+			this.panel8.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numRMTime)).BeginInit();
+			this.panel7.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -226,7 +246,7 @@
 			// lbBLD
 			// 
 			this.lbBLD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbBLD.Location = new System.Drawing.Point(15, 93);
+			this.lbBLD.Location = new System.Drawing.Point(15, 89);
 			this.lbBLD.Name = "lbBLD";
 			this.lbBLD.Size = new System.Drawing.Size(82, 32);
 			this.lbBLD.TabIndex = 8;
@@ -235,16 +255,16 @@
 			// 
 			// SourceCSB
 			// 
-			this.SourceCSB.Location = new System.Drawing.Point(132, 571);
+			this.SourceCSB.Location = new System.Drawing.Point(152, 581);
 			this.SourceCSB.Name = "SourceCSB";
-			this.SourceCSB.Size = new System.Drawing.Size(331, 20);
+			this.SourceCSB.Size = new System.Drawing.Size(289, 20);
 			this.SourceCSB.TabIndex = 71;
 			// 
 			// PickSourceCSB
 			// 
-			this.PickSourceCSB.Location = new System.Drawing.Point(11, 557);
+			this.PickSourceCSB.Location = new System.Drawing.Point(11, 569);
 			this.PickSourceCSB.Name = "PickSourceCSB";
-			this.PickSourceCSB.Size = new System.Drawing.Size(115, 44);
+			this.PickSourceCSB.Size = new System.Drawing.Size(135, 44);
 			this.PickSourceCSB.TabIndex = 72;
 			this.PickSourceCSB.Text = "Select CSB Music";
 			this.PickSourceCSB.UseVisualStyleBackColor = true;
@@ -252,20 +272,23 @@
 			// 
 			// InstallMusicFile
 			// 
+			this.InstallMusicFile.BackColor = System.Drawing.Color.LightGreen;
 			this.InstallMusicFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.InstallMusicFile.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this.InstallMusicFile.Location = new System.Drawing.Point(505, 553);
+			this.InstallMusicFile.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+			this.InstallMusicFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.InstallMusicFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.InstallMusicFile.Location = new System.Drawing.Point(484, 565);
 			this.InstallMusicFile.Name = "InstallMusicFile";
-			this.InstallMusicFile.Size = new System.Drawing.Size(156, 48);
+			this.InstallMusicFile.Size = new System.Drawing.Size(95, 48);
 			this.InstallMusicFile.TabIndex = 73;
-			this.InstallMusicFile.Text = "Install music to Stage/Menu";
+			this.InstallMusicFile.Text = "Install Music to Stage/Menu";
 			this.InstallMusicFile.UseVisualStyleBackColor = false;
 			this.InstallMusicFile.Click += new System.EventHandler(this.InstallFile_Click);
 			// 
 			// lbIND
 			// 
 			this.lbIND.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbIND.Location = new System.Drawing.Point(103, 93);
+			this.lbIND.Location = new System.Drawing.Point(103, 89);
 			this.lbIND.Name = "lbIND";
 			this.lbIND.Size = new System.Drawing.Size(82, 32);
 			this.lbIND.TabIndex = 74;
@@ -275,7 +298,7 @@
 			// lbELV
 			// 
 			this.lbELV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbELV.Location = new System.Drawing.Point(279, 93);
+			this.lbELV.Location = new System.Drawing.Point(279, 89);
 			this.lbELV.Name = "lbELV";
 			this.lbELV.Size = new System.Drawing.Size(82, 32);
 			this.lbELV.TabIndex = 76;
@@ -285,7 +308,7 @@
 			// lbKOR
 			// 
 			this.lbKOR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbKOR.Location = new System.Drawing.Point(191, 93);
+			this.lbKOR.Location = new System.Drawing.Point(191, 89);
 			this.lbKOR.Name = "lbKOR";
 			this.lbKOR.Size = new System.Drawing.Size(82, 32);
 			this.lbKOR.TabIndex = 75;
@@ -295,7 +318,7 @@
 			// lbCHN
 			// 
 			this.lbCHN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbCHN.Location = new System.Drawing.Point(631, 93);
+			this.lbCHN.Location = new System.Drawing.Point(631, 89);
 			this.lbCHN.Name = "lbCHN";
 			this.lbCHN.Size = new System.Drawing.Size(82, 32);
 			this.lbCHN.TabIndex = 80;
@@ -305,7 +328,7 @@
 			// lbUSA
 			// 
 			this.lbUSA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbUSA.Location = new System.Drawing.Point(543, 93);
+			this.lbUSA.Location = new System.Drawing.Point(543, 89);
 			this.lbUSA.Name = "lbUSA";
 			this.lbUSA.Size = new System.Drawing.Size(82, 32);
 			this.lbUSA.TabIndex = 79;
@@ -315,7 +338,7 @@
 			// lbLBX
 			// 
 			this.lbLBX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbLBX.Location = new System.Drawing.Point(455, 93);
+			this.lbLBX.Location = new System.Drawing.Point(455, 89);
 			this.lbLBX.Name = "lbLBX";
 			this.lbLBX.Size = new System.Drawing.Size(82, 32);
 			this.lbLBX.TabIndex = 78;
@@ -325,7 +348,7 @@
 			// lbAFX
 			// 
 			this.lbAFX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbAFX.Location = new System.Drawing.Point(367, 93);
+			this.lbAFX.Location = new System.Drawing.Point(367, 89);
 			this.lbAFX.Name = "lbAFX";
 			this.lbAFX.Size = new System.Drawing.Size(82, 32);
 			this.lbAFX.TabIndex = 77;
@@ -335,7 +358,7 @@
 			// lbRUS
 			// 
 			this.lbRUS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbRUS.Location = new System.Drawing.Point(719, 206);
+			this.lbRUS.Location = new System.Drawing.Point(718, 202);
 			this.lbRUS.Name = "lbRUS";
 			this.lbRUS.Size = new System.Drawing.Size(82, 32);
 			this.lbRUS.TabIndex = 82;
@@ -345,7 +368,7 @@
 			// lbHFP
 			// 
 			this.lbHFP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbHFP.Location = new System.Drawing.Point(719, 93);
+			this.lbHFP.Location = new System.Drawing.Point(718, 89);
 			this.lbHFP.Name = "lbHFP";
 			this.lbHFP.Size = new System.Drawing.Size(82, 32);
 			this.lbHFP.TabIndex = 81;
@@ -359,7 +382,7 @@
 			// lbLAB
 			// 
 			this.lbLAB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbLAB.Location = new System.Drawing.Point(631, 206);
+			this.lbLAB.Location = new System.Drawing.Point(631, 202);
 			this.lbLAB.Name = "lbLAB";
 			this.lbLAB.Size = new System.Drawing.Size(82, 32);
 			this.lbLAB.TabIndex = 92;
@@ -369,7 +392,7 @@
 			// lbBFU
 			// 
 			this.lbBFU.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbBFU.Location = new System.Drawing.Point(543, 206);
+			this.lbBFU.Location = new System.Drawing.Point(543, 202);
 			this.lbBFU.Name = "lbBFU";
 			this.lbBFU.Size = new System.Drawing.Size(82, 32);
 			this.lbBFU.TabIndex = 91;
@@ -379,7 +402,7 @@
 			// lbJPX
 			// 
 			this.lbJPX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbJPX.Location = new System.Drawing.Point(455, 206);
+			this.lbJPX.Location = new System.Drawing.Point(455, 202);
 			this.lbJPX.Name = "lbJPX";
 			this.lbJPX.Size = new System.Drawing.Size(82, 32);
 			this.lbJPX.TabIndex = 90;
@@ -389,7 +412,7 @@
 			// lbSCO
 			// 
 			this.lbSCO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbSCO.Location = new System.Drawing.Point(367, 206);
+			this.lbSCO.Location = new System.Drawing.Point(367, 202);
 			this.lbSCO.Name = "lbSCO";
 			this.lbSCO.Size = new System.Drawing.Size(82, 32);
 			this.lbSCO.TabIndex = 89;
@@ -399,7 +422,7 @@
 			// lbEUR
 			// 
 			this.lbEUR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbEUR.Location = new System.Drawing.Point(279, 206);
+			this.lbEUR.Location = new System.Drawing.Point(279, 202);
 			this.lbEUR.Name = "lbEUR";
 			this.lbEUR.Size = new System.Drawing.Size(82, 32);
 			this.lbEUR.TabIndex = 88;
@@ -409,7 +432,7 @@
 			// lbJPN
 			// 
 			this.lbJPN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbJPN.Location = new System.Drawing.Point(191, 206);
+			this.lbJPN.Location = new System.Drawing.Point(191, 202);
 			this.lbJPN.Name = "lbJPN";
 			this.lbJPN.Size = new System.Drawing.Size(82, 32);
 			this.lbJPN.TabIndex = 87;
@@ -419,7 +442,7 @@
 			// lbMAD
 			// 
 			this.lbMAD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbMAD.Location = new System.Drawing.Point(103, 206);
+			this.lbMAD.Location = new System.Drawing.Point(103, 202);
 			this.lbMAD.Name = "lbMAD";
 			this.lbMAD.Size = new System.Drawing.Size(82, 32);
 			this.lbMAD.TabIndex = 86;
@@ -429,7 +452,7 @@
 			// lbVIE
 			// 
 			this.lbVIE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbVIE.Location = new System.Drawing.Point(15, 206);
+			this.lbVIE.Location = new System.Drawing.Point(15, 202);
 			this.lbVIE.Name = "lbVIE";
 			this.lbVIE.Size = new System.Drawing.Size(82, 32);
 			this.lbVIE.TabIndex = 85;
@@ -439,7 +462,7 @@
 			// lbAFR
 			// 
 			this.lbAFR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbAFR.Location = new System.Drawing.Point(543, 319);
+			this.lbAFR.Location = new System.Drawing.Point(543, 314);
 			this.lbAFR.Name = "lbAFR";
 			this.lbAFR.Size = new System.Drawing.Size(82, 32);
 			this.lbAFR.TabIndex = 84;
@@ -449,7 +472,7 @@
 			// lbBRA
 			// 
 			this.lbBRA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbBRA.Location = new System.Drawing.Point(455, 319);
+			this.lbBRA.Location = new System.Drawing.Point(455, 314);
 			this.lbBRA.Name = "lbBRA";
 			this.lbBRA.Size = new System.Drawing.Size(82, 32);
 			this.lbBRA.TabIndex = 83;
@@ -459,7 +482,7 @@
 			// lbDET
 			// 
 			this.lbDET.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbDET.Location = new System.Drawing.Point(367, 319);
+			this.lbDET.Location = new System.Drawing.Point(367, 314);
 			this.lbDET.Name = "lbDET";
 			this.lbDET.Size = new System.Drawing.Size(82, 32);
 			this.lbDET.TabIndex = 100;
@@ -469,7 +492,7 @@
 			// lbTRN
 			// 
 			this.lbTRN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbTRN.Location = new System.Drawing.Point(15, 437);
+			this.lbTRN.Location = new System.Drawing.Point(15, 428);
 			this.lbTRN.Name = "lbTRN";
 			this.lbTRN.Size = new System.Drawing.Size(82, 32);
 			this.lbTRN.TabIndex = 99;
@@ -479,7 +502,7 @@
 			// lbVNX
 			// 
 			this.lbVNX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbVNX.Location = new System.Drawing.Point(279, 319);
+			this.lbVNX.Location = new System.Drawing.Point(279, 314);
 			this.lbVNX.Name = "lbVNX";
 			this.lbVNX.Size = new System.Drawing.Size(82, 32);
 			this.lbVNX.TabIndex = 98;
@@ -489,7 +512,7 @@
 			// lbBRX
 			// 
 			this.lbBRX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbBRX.Location = new System.Drawing.Point(191, 319);
+			this.lbBRX.Location = new System.Drawing.Point(191, 314);
 			this.lbBRX.Name = "lbBRX";
 			this.lbBRX.Size = new System.Drawing.Size(82, 32);
 			this.lbBRX.TabIndex = 97;
@@ -499,7 +522,7 @@
 			// lbJUR
 			// 
 			this.lbJUR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbJUR.Location = new System.Drawing.Point(719, 320);
+			this.lbJUR.Location = new System.Drawing.Point(718, 315);
 			this.lbJUR.Name = "lbJUR";
 			this.lbJUR.Size = new System.Drawing.Size(82, 32);
 			this.lbJUR.TabIndex = 96;
@@ -509,7 +532,7 @@
 			// lbCNX
 			// 
 			this.lbCNX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbCNX.Location = new System.Drawing.Point(631, 319);
+			this.lbCNX.Location = new System.Drawing.Point(631, 314);
 			this.lbCNX.Name = "lbCNX";
 			this.lbCNX.Size = new System.Drawing.Size(82, 32);
 			this.lbCNX.TabIndex = 95;
@@ -519,7 +542,7 @@
 			// lbVCN
 			// 
 			this.lbVCN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbVCN.Location = new System.Drawing.Point(103, 319);
+			this.lbVCN.Location = new System.Drawing.Point(103, 314);
 			this.lbVCN.Name = "lbVCN";
 			this.lbVCN.Size = new System.Drawing.Size(82, 32);
 			this.lbVCN.TabIndex = 94;
@@ -529,7 +552,7 @@
 			// lbRVR
 			// 
 			this.lbRVR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbRVR.Location = new System.Drawing.Point(15, 319);
+			this.lbRVR.Location = new System.Drawing.Point(15, 314);
 			this.lbRVR.Name = "lbRVR";
 			this.lbRVR.Size = new System.Drawing.Size(82, 32);
 			this.lbRVR.TabIndex = 93;
@@ -539,7 +562,7 @@
 			// lbMAIN
 			// 
 			this.lbMAIN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbMAIN.Location = new System.Drawing.Point(279, 437);
+			this.lbMAIN.Location = new System.Drawing.Point(279, 428);
 			this.lbMAIN.Name = "lbMAIN";
 			this.lbMAIN.Size = new System.Drawing.Size(82, 32);
 			this.lbMAIN.TabIndex = 102;
@@ -549,7 +572,7 @@
 			// lbSELECT
 			// 
 			this.lbSELECT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbSELECT.Location = new System.Drawing.Point(367, 437);
+			this.lbSELECT.Location = new System.Drawing.Point(367, 428);
 			this.lbSELECT.Name = "lbSELECT";
 			this.lbSELECT.Size = new System.Drawing.Size(82, 32);
 			this.lbSELECT.TabIndex = 104;
@@ -558,9 +581,9 @@
 			// 
 			// btnPreview
 			// 
-			this.btnPreview.Location = new System.Drawing.Point(665, 553);
+			this.btnPreview.Location = new System.Drawing.Point(678, 19);
 			this.btnPreview.Name = "btnPreview";
-			this.btnPreview.Size = new System.Drawing.Size(136, 48);
+			this.btnPreview.Size = new System.Drawing.Size(125, 48);
 			this.btnPreview.TabIndex = 105;
 			this.btnPreview.Text = "Preview CSB in SFIVAM";
 			this.btnPreview.UseVisualStyleBackColor = true;
@@ -607,7 +630,7 @@
 			// lbSCX
 			// 
 			this.lbSCX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbSCX.Location = new System.Drawing.Point(543, 437);
+			this.lbSCX.Location = new System.Drawing.Point(543, 428);
 			this.lbSCX.Name = "lbSCX";
 			this.lbSCX.Size = new System.Drawing.Size(82, 32);
 			this.lbSCX.TabIndex = 114;
@@ -617,7 +640,7 @@
 			// lbGAS
 			// 
 			this.lbGAS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbGAS.Location = new System.Drawing.Point(455, 437);
+			this.lbGAS.Location = new System.Drawing.Point(455, 428);
 			this.lbGAS.Name = "lbGAS";
 			this.lbGAS.Size = new System.Drawing.Size(82, 32);
 			this.lbGAS.TabIndex = 112;
@@ -627,7 +650,7 @@
 			// lbBOS
 			// 
 			this.lbBOS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbBOS.Location = new System.Drawing.Point(191, 437);
+			this.lbBOS.Location = new System.Drawing.Point(191, 428);
 			this.lbBOS.Name = "lbBOS";
 			this.lbBOS.Size = new System.Drawing.Size(82, 32);
 			this.lbBOS.TabIndex = 118;
@@ -637,7 +660,7 @@
 			// lbBOS_EXT
 			// 
 			this.lbBOS_EXT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbBOS_EXT.Location = new System.Drawing.Point(631, 437);
+			this.lbBOS_EXT.Location = new System.Drawing.Point(631, 428);
 			this.lbBOS_EXT.Name = "lbBOS_EXT";
 			this.lbBOS_EXT.Size = new System.Drawing.Size(82, 32);
 			this.lbBOS_EXT.TabIndex = 116;
@@ -649,7 +672,7 @@
 			this.BOS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.BOS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.BOS.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_BOS;
-			this.BOS.Location = new System.Drawing.Point(191, 468);
+			this.BOS.Location = new System.Drawing.Point(191, 459);
 			this.BOS.Name = "BOS";
 			this.BOS.Size = new System.Drawing.Size(82, 79);
 			this.BOS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -662,7 +685,7 @@
 			this.BOS_EXT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.BOS_EXT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.BOS_EXT.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_BOS_EXT;
-			this.BOS_EXT.Location = new System.Drawing.Point(631, 468);
+			this.BOS_EXT.Location = new System.Drawing.Point(631, 459);
 			this.BOS_EXT.Name = "BOS_EXT";
 			this.BOS_EXT.Size = new System.Drawing.Size(82, 79);
 			this.BOS_EXT.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -675,7 +698,7 @@
 			this.SCX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.SCX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.SCX.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_SCX;
-			this.SCX.Location = new System.Drawing.Point(543, 468);
+			this.SCX.Location = new System.Drawing.Point(543, 459);
 			this.SCX.Name = "SCX";
 			this.SCX.Size = new System.Drawing.Size(82, 79);
 			this.SCX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -688,7 +711,7 @@
 			this.GAS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.GAS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.GAS.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_GAS;
-			this.GAS.Location = new System.Drawing.Point(455, 468);
+			this.GAS.Location = new System.Drawing.Point(455, 459);
 			this.GAS.Name = "GAS";
 			this.GAS.Size = new System.Drawing.Size(82, 79);
 			this.GAS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -701,7 +724,7 @@
 			this.SELECT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.SELECT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.SELECT.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_SELECT;
-			this.SELECT.Location = new System.Drawing.Point(367, 468);
+			this.SELECT.Location = new System.Drawing.Point(367, 459);
 			this.SELECT.Name = "SELECT";
 			this.SELECT.Size = new System.Drawing.Size(82, 79);
 			this.SELECT.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -714,7 +737,7 @@
 			this.MAIN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.MAIN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.MAIN.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_MAIN;
-			this.MAIN.Location = new System.Drawing.Point(279, 468);
+			this.MAIN.Location = new System.Drawing.Point(279, 459);
 			this.MAIN.Name = "MAIN";
 			this.MAIN.Size = new System.Drawing.Size(82, 79);
 			this.MAIN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -727,7 +750,7 @@
 			this.LAB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.LAB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.LAB.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_LAB;
-			this.LAB.Location = new System.Drawing.Point(631, 236);
+			this.LAB.Location = new System.Drawing.Point(631, 232);
 			this.LAB.Name = "LAB";
 			this.LAB.Size = new System.Drawing.Size(82, 79);
 			this.LAB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -740,7 +763,7 @@
 			this.RUS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.RUS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.RUS.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_RUS;
-			this.RUS.Location = new System.Drawing.Point(719, 237);
+			this.RUS.Location = new System.Drawing.Point(718, 233);
 			this.RUS.Name = "RUS";
 			this.RUS.Size = new System.Drawing.Size(82, 79);
 			this.RUS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -753,7 +776,7 @@
 			this.DET.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.DET.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.DET.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_DET;
-			this.DET.Location = new System.Drawing.Point(367, 350);
+			this.DET.Location = new System.Drawing.Point(367, 345);
 			this.DET.Name = "DET";
 			this.DET.Size = new System.Drawing.Size(82, 79);
 			this.DET.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -766,7 +789,7 @@
 			this.TRN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.TRN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.TRN.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_TRN;
-			this.TRN.Location = new System.Drawing.Point(15, 468);
+			this.TRN.Location = new System.Drawing.Point(15, 459);
 			this.TRN.Name = "TRN";
 			this.TRN.Size = new System.Drawing.Size(82, 79);
 			this.TRN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -779,7 +802,7 @@
 			this.VNX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.VNX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.VNX.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_VNX;
-			this.VNX.Location = new System.Drawing.Point(279, 350);
+			this.VNX.Location = new System.Drawing.Point(279, 345);
 			this.VNX.Name = "VNX";
 			this.VNX.Size = new System.Drawing.Size(82, 79);
 			this.VNX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -792,7 +815,7 @@
 			this.BFU.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.BFU.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.BFU.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_BFU;
-			this.BFU.Location = new System.Drawing.Point(543, 236);
+			this.BFU.Location = new System.Drawing.Point(543, 232);
 			this.BFU.Name = "BFU";
 			this.BFU.Size = new System.Drawing.Size(82, 79);
 			this.BFU.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -805,7 +828,7 @@
 			this.JPX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.JPX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.JPX.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_JPX;
-			this.JPX.Location = new System.Drawing.Point(455, 236);
+			this.JPX.Location = new System.Drawing.Point(455, 232);
 			this.JPX.Name = "JPX";
 			this.JPX.Size = new System.Drawing.Size(82, 79);
 			this.JPX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -818,7 +841,7 @@
 			this.SCO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.SCO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.SCO.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_SCO;
-			this.SCO.Location = new System.Drawing.Point(367, 236);
+			this.SCO.Location = new System.Drawing.Point(367, 232);
 			this.SCO.Name = "SCO";
 			this.SCO.Size = new System.Drawing.Size(82, 79);
 			this.SCO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -831,7 +854,7 @@
 			this.EUR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.EUR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.EUR.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_EUR;
-			this.EUR.Location = new System.Drawing.Point(279, 236);
+			this.EUR.Location = new System.Drawing.Point(279, 232);
 			this.EUR.Name = "EUR";
 			this.EUR.Size = new System.Drawing.Size(82, 79);
 			this.EUR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -844,7 +867,7 @@
 			this.HFP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.HFP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.HFP.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_HFP;
-			this.HFP.Location = new System.Drawing.Point(719, 124);
+			this.HFP.Location = new System.Drawing.Point(718, 120);
 			this.HFP.Name = "HFP";
 			this.HFP.Size = new System.Drawing.Size(82, 79);
 			this.HFP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -857,7 +880,7 @@
 			this.CHN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.CHN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.CHN.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_CHN;
-			this.CHN.Location = new System.Drawing.Point(631, 124);
+			this.CHN.Location = new System.Drawing.Point(631, 120);
 			this.CHN.Name = "CHN";
 			this.CHN.Size = new System.Drawing.Size(82, 79);
 			this.CHN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -870,7 +893,7 @@
 			this.USA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.USA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.USA.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_USA;
-			this.USA.Location = new System.Drawing.Point(543, 124);
+			this.USA.Location = new System.Drawing.Point(543, 120);
 			this.USA.Name = "USA";
 			this.USA.Size = new System.Drawing.Size(82, 79);
 			this.USA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -883,7 +906,7 @@
 			this.LBX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.LBX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.LBX.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_LBX;
-			this.LBX.Location = new System.Drawing.Point(455, 124);
+			this.LBX.Location = new System.Drawing.Point(455, 120);
 			this.LBX.Name = "LBX";
 			this.LBX.Size = new System.Drawing.Size(82, 79);
 			this.LBX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -896,7 +919,7 @@
 			this.BRX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.BRX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.BRX.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_BRX;
-			this.BRX.Location = new System.Drawing.Point(191, 350);
+			this.BRX.Location = new System.Drawing.Point(191, 345);
 			this.BRX.Name = "BRX";
 			this.BRX.Size = new System.Drawing.Size(82, 79);
 			this.BRX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -909,7 +932,7 @@
 			this.JPN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.JPN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.JPN.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_JPN;
-			this.JPN.Location = new System.Drawing.Point(191, 236);
+			this.JPN.Location = new System.Drawing.Point(191, 232);
 			this.JPN.Name = "JPN";
 			this.JPN.Size = new System.Drawing.Size(82, 79);
 			this.JPN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -922,7 +945,7 @@
 			this.AFX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.AFX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.AFX.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_AFX;
-			this.AFX.Location = new System.Drawing.Point(367, 124);
+			this.AFX.Location = new System.Drawing.Point(367, 120);
 			this.AFX.Name = "AFX";
 			this.AFX.Size = new System.Drawing.Size(82, 79);
 			this.AFX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -935,7 +958,7 @@
 			this.JUR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.JUR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.JUR.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_JUR;
-			this.JUR.Location = new System.Drawing.Point(719, 351);
+			this.JUR.Location = new System.Drawing.Point(718, 346);
 			this.JUR.Name = "JUR";
 			this.JUR.Size = new System.Drawing.Size(82, 79);
 			this.JUR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -948,7 +971,7 @@
 			this.CNX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.CNX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.CNX.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_CNX;
-			this.CNX.Location = new System.Drawing.Point(631, 350);
+			this.CNX.Location = new System.Drawing.Point(631, 345);
 			this.CNX.Name = "CNX";
 			this.CNX.Size = new System.Drawing.Size(82, 79);
 			this.CNX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -961,7 +984,7 @@
 			this.VCN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.VCN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.VCN.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_VCN;
-			this.VCN.Location = new System.Drawing.Point(103, 350);
+			this.VCN.Location = new System.Drawing.Point(103, 345);
 			this.VCN.Name = "VCN";
 			this.VCN.Size = new System.Drawing.Size(82, 79);
 			this.VCN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -974,7 +997,7 @@
 			this.RVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.RVR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.RVR.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_RVR;
-			this.RVR.Location = new System.Drawing.Point(15, 350);
+			this.RVR.Location = new System.Drawing.Point(15, 345);
 			this.RVR.Name = "RVR";
 			this.RVR.Size = new System.Drawing.Size(82, 79);
 			this.RVR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -987,7 +1010,7 @@
 			this.MAD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.MAD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.MAD.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_MAD;
-			this.MAD.Location = new System.Drawing.Point(103, 236);
+			this.MAD.Location = new System.Drawing.Point(103, 232);
 			this.MAD.Name = "MAD";
 			this.MAD.Size = new System.Drawing.Size(82, 79);
 			this.MAD.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1000,7 +1023,7 @@
 			this.VIE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.VIE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.VIE.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_VIE;
-			this.VIE.Location = new System.Drawing.Point(15, 236);
+			this.VIE.Location = new System.Drawing.Point(15, 232);
 			this.VIE.Name = "VIE";
 			this.VIE.Size = new System.Drawing.Size(82, 79);
 			this.VIE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1013,7 +1036,7 @@
 			this.AFR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.AFR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.AFR.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_AFR;
-			this.AFR.Location = new System.Drawing.Point(543, 350);
+			this.AFR.Location = new System.Drawing.Point(543, 345);
 			this.AFR.Name = "AFR";
 			this.AFR.Size = new System.Drawing.Size(82, 79);
 			this.AFR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1026,7 +1049,7 @@
 			this.BRA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.BRA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.BRA.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_BRA;
-			this.BRA.Location = new System.Drawing.Point(455, 350);
+			this.BRA.Location = new System.Drawing.Point(455, 345);
 			this.BRA.Name = "BRA";
 			this.BRA.Size = new System.Drawing.Size(82, 79);
 			this.BRA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1039,7 +1062,7 @@
 			this.ELV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ELV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.ELV.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_ELV;
-			this.ELV.Location = new System.Drawing.Point(279, 124);
+			this.ELV.Location = new System.Drawing.Point(279, 120);
 			this.ELV.Name = "ELV";
 			this.ELV.Size = new System.Drawing.Size(82, 79);
 			this.ELV.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1052,7 +1075,7 @@
 			this.KOR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.KOR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.KOR.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_KOR;
-			this.KOR.Location = new System.Drawing.Point(191, 124);
+			this.KOR.Location = new System.Drawing.Point(191, 120);
 			this.KOR.Name = "KOR";
 			this.KOR.Size = new System.Drawing.Size(82, 79);
 			this.KOR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1065,7 +1088,7 @@
 			this.IND.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.IND.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.IND.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_IND;
-			this.IND.Location = new System.Drawing.Point(103, 124);
+			this.IND.Location = new System.Drawing.Point(103, 120);
 			this.IND.Name = "IND";
 			this.IND.Size = new System.Drawing.Size(82, 79);
 			this.IND.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1079,7 +1102,7 @@
 			this.BLD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.BLD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.BLD.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_BLD;
-			this.BLD.Location = new System.Drawing.Point(15, 124);
+			this.BLD.Location = new System.Drawing.Point(15, 120);
 			this.BLD.Name = "BLD";
 			this.BLD.Size = new System.Drawing.Size(82, 79);
 			this.BLD.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1124,7 +1147,7 @@
 			// lbTRL
 			// 
 			this.lbTRL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lbTRL.Location = new System.Drawing.Point(103, 437);
+			this.lbTRL.Location = new System.Drawing.Point(103, 428);
 			this.lbTRL.Name = "lbTRL";
 			this.lbTRL.Size = new System.Drawing.Size(82, 32);
 			this.lbTRL.TabIndex = 121;
@@ -1136,7 +1159,7 @@
 			this.TRL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.TRL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.TRL.Image = global::USF4_Music_Mod_Tool.Properties.Resources.ST_TRL;
-			this.TRL.Location = new System.Drawing.Point(103, 468);
+			this.TRL.Location = new System.Drawing.Point(103, 459);
 			this.TRL.Name = "TRL";
 			this.TRL.Size = new System.Drawing.Size(82, 79);
 			this.TRL.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1161,6 +1184,8 @@
 			// 
 			// listBox1
 			// 
+			this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.listBox1.FormattingEnabled = true;
 			this.listBox1.HorizontalScrollbar = true;
 			this.listBox1.Location = new System.Drawing.Point(6, 105);
@@ -1171,6 +1196,7 @@
 			// 
 			// btnConvertWav
 			// 
+			this.btnConvertWav.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnConvertWav.Location = new System.Drawing.Point(263, 76);
 			this.btnConvertWav.Name = "btnConvertWav";
 			this.btnConvertWav.Size = new System.Drawing.Size(167, 23);
@@ -1181,6 +1207,8 @@
 			// 
 			// adxFileName1
 			// 
+			this.adxFileName1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.adxFileName1.Location = new System.Drawing.Point(132, 31);
 			this.adxFileName1.Name = "adxFileName1";
 			this.adxFileName1.Size = new System.Drawing.Size(215, 20);
@@ -1188,6 +1216,7 @@
 			// 
 			// pickADX1
 			// 
+			this.pickADX1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.pickADX1.Location = new System.Drawing.Point(354, 29);
 			this.pickADX1.Name = "pickADX1";
 			this.pickADX1.Size = new System.Drawing.Size(51, 23);
@@ -1199,6 +1228,7 @@
 			// 
 			// pickADX2
 			// 
+			this.pickADX2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.pickADX2.Location = new System.Drawing.Point(354, 58);
 			this.pickADX2.Name = "pickADX2";
 			this.pickADX2.Size = new System.Drawing.Size(51, 23);
@@ -1210,6 +1240,8 @@
 			// 
 			// adxFileName2
 			// 
+			this.adxFileName2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.adxFileName2.Location = new System.Drawing.Point(132, 60);
 			this.adxFileName2.Name = "adxFileName2";
 			this.adxFileName2.Size = new System.Drawing.Size(215, 20);
@@ -1217,9 +1249,12 @@
 			// 
 			// btnCreateCSB
 			// 
-			this.btnCreateCSB.Location = new System.Drawing.Point(164, 640);
+			this.btnCreateCSB.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnCreateCSB.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+			this.btnCreateCSB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnCreateCSB.Location = new System.Drawing.Point(162, 676);
 			this.btnCreateCSB.Name = "btnCreateCSB";
-			this.btnCreateCSB.Size = new System.Drawing.Size(127, 32);
+			this.btnCreateCSB.Size = new System.Drawing.Size(132, 41);
 			this.btnCreateCSB.TabIndex = 138;
 			this.btnCreateCSB.Text = "Create CSB";
 			this.btnCreateCSB.UseVisualStyleBackColor = true;
@@ -1227,7 +1262,12 @@
 			// 
 			// panel1
 			// 
+			this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel1.Controls.Add(this.label22);
+			this.panel1.Controls.Add(this.label18);
 			this.panel1.Controls.Add(this.label5);
 			this.panel1.Controls.Add(this.label3);
 			this.panel1.Controls.Add(this.label6);
@@ -1241,15 +1281,34 @@
 			this.panel1.Controls.Add(this.listBox1);
 			this.panel1.Location = new System.Drawing.Point(819, 27);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(439, 681);
+			this.panel1.Size = new System.Drawing.Size(439, 729);
 			this.panel1.TabIndex = 139;
+			// 
+			// label22
+			// 
+			this.label22.Location = new System.Drawing.Point(6, 647);
+			this.label22.Name = "label22";
+			this.label22.Size = new System.Drawing.Size(424, 26);
+			this.label22.TabIndex = 144;
+			this.label22.Text = "* Starts at the same time as Intro Normal Match. Never heard in game, but use thi" +
+    "s to sync the loops if needed";
+			// 
+			// label18
+			// 
+			this.label18.AutoSize = true;
+			this.label18.Location = new System.Drawing.Point(131, 348);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(163, 13);
+			this.label18.TabIndex = 144;
+			this.label18.Text = "(Make sure to assign 6 ADX files)";
 			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(5, 340);
+			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label5.Location = new System.Drawing.Point(5, 342);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(62, 13);
+			this.label5.Size = new System.Drawing.Size(125, 25);
 			this.label5.TabIndex = 142;
 			this.label5.Text = "Create CSB";
 			// 
@@ -1274,6 +1333,8 @@
 			// 
 			// panel2
 			// 
+			this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel2.Controls.Add(this.label9);
 			this.panel2.Controls.Add(this.label8);
@@ -1282,7 +1343,7 @@
 			this.panel2.Controls.Add(this.pickADX1);
 			this.panel2.Controls.Add(this.adxFileName2);
 			this.panel2.Controls.Add(this.pickADX2);
-			this.panel2.Location = new System.Drawing.Point(6, 360);
+			this.panel2.Location = new System.Drawing.Point(6, 372);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(424, 92);
 			this.panel2.TabIndex = 139;
@@ -1310,9 +1371,9 @@
 			this.label7.AutoSize = true;
 			this.label7.Location = new System.Drawing.Point(7, 34);
 			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(28, 13);
+			this.label7.Size = new System.Drawing.Size(95, 13);
 			this.label7.TabIndex = 142;
-			this.label7.Text = "Intro";
+			this.label7.Text = "Intro (played once)";
 			// 
 			// label4
 			// 
@@ -1325,6 +1386,8 @@
 			// 
 			// panel4
 			// 
+			this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel4.Controls.Add(this.label13);
 			this.panel4.Controls.Add(this.label14);
@@ -1333,7 +1396,7 @@
 			this.panel4.Controls.Add(this.pickADX5);
 			this.panel4.Controls.Add(this.adxFileName6);
 			this.panel4.Controls.Add(this.pickADX6);
-			this.panel4.Location = new System.Drawing.Point(6, 542);
+			this.panel4.Location = new System.Drawing.Point(6, 552);
 			this.panel4.Name = "panel4";
 			this.panel4.Size = new System.Drawing.Size(424, 92);
 			this.panel4.TabIndex = 139;
@@ -1361,12 +1424,14 @@
 			this.label15.AutoSize = true;
 			this.label15.Location = new System.Drawing.Point(7, 34);
 			this.label15.Name = "label15";
-			this.label15.Size = new System.Drawing.Size(28, 13);
+			this.label15.Size = new System.Drawing.Size(35, 13);
 			this.label15.TabIndex = 142;
-			this.label15.Text = "Intro";
+			this.label15.Text = "Intro* ";
 			// 
 			// adxFileName5
 			// 
+			this.adxFileName5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.adxFileName5.Location = new System.Drawing.Point(132, 31);
 			this.adxFileName5.Name = "adxFileName5";
 			this.adxFileName5.Size = new System.Drawing.Size(215, 20);
@@ -1374,6 +1439,7 @@
 			// 
 			// pickADX5
 			// 
+			this.pickADX5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.pickADX5.Location = new System.Drawing.Point(354, 29);
 			this.pickADX5.Name = "pickADX5";
 			this.pickADX5.Size = new System.Drawing.Size(51, 23);
@@ -1385,6 +1451,8 @@
 			// 
 			// adxFileName6
 			// 
+			this.adxFileName6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.adxFileName6.Location = new System.Drawing.Point(132, 60);
 			this.adxFileName6.Name = "adxFileName6";
 			this.adxFileName6.Size = new System.Drawing.Size(215, 20);
@@ -1392,6 +1460,7 @@
 			// 
 			// pickADX6
 			// 
+			this.pickADX6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.pickADX6.Location = new System.Drawing.Point(354, 58);
 			this.pickADX6.Name = "pickADX6";
 			this.pickADX6.Size = new System.Drawing.Size(51, 23);
@@ -1403,6 +1472,8 @@
 			// 
 			// panel3
 			// 
+			this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel3.Controls.Add(this.label10);
 			this.panel3.Controls.Add(this.label11);
@@ -1411,7 +1482,7 @@
 			this.panel3.Controls.Add(this.pickADX3);
 			this.panel3.Controls.Add(this.adxFileName4);
 			this.panel3.Controls.Add(this.pickADX4);
-			this.panel3.Location = new System.Drawing.Point(6, 451);
+			this.panel3.Location = new System.Drawing.Point(6, 461);
 			this.panel3.Name = "panel3";
 			this.panel3.Size = new System.Drawing.Size(424, 92);
 			this.panel3.TabIndex = 139;
@@ -1445,6 +1516,8 @@
 			// 
 			// adxFileName3
 			// 
+			this.adxFileName3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.adxFileName3.Location = new System.Drawing.Point(132, 31);
 			this.adxFileName3.Name = "adxFileName3";
 			this.adxFileName3.Size = new System.Drawing.Size(215, 20);
@@ -1452,6 +1525,7 @@
 			// 
 			// pickADX3
 			// 
+			this.pickADX3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.pickADX3.Location = new System.Drawing.Point(354, 29);
 			this.pickADX3.Name = "pickADX3";
 			this.pickADX3.Size = new System.Drawing.Size(51, 23);
@@ -1463,6 +1537,8 @@
 			// 
 			// adxFileName4
 			// 
+			this.adxFileName4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.adxFileName4.Location = new System.Drawing.Point(132, 60);
 			this.adxFileName4.Name = "adxFileName4";
 			this.adxFileName4.Size = new System.Drawing.Size(215, 20);
@@ -1470,6 +1546,7 @@
 			// 
 			// pickADX4
 			// 
+			this.pickADX4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.pickADX4.Location = new System.Drawing.Point(354, 58);
 			this.pickADX4.Name = "pickADX4";
 			this.pickADX4.Size = new System.Drawing.Size(51, 23);
@@ -1481,8 +1558,10 @@
 			// 
 			// panel5
 			// 
+			this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
 			this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel5.Controls.Add(this.label16);
+			this.panel5.Controls.Add(this.panel6);
 			this.panel5.Controls.Add(this.lbTRL);
 			this.panel5.Controls.Add(this.label1);
 			this.panel5.Controls.Add(this.TRL);
@@ -1511,7 +1590,6 @@
 			this.panel5.Controls.Add(this.RVR);
 			this.panel5.Controls.Add(this.tbSFAM);
 			this.panel5.Controls.Add(this.VCN);
-			this.panel5.Controls.Add(this.btnPreview);
 			this.panel5.Controls.Add(this.CNX);
 			this.panel5.Controls.Add(this.lbSELECT);
 			this.panel5.Controls.Add(this.JUR);
@@ -1564,35 +1642,195 @@
 			this.panel5.Controls.Add(this.lbCHN);
 			this.panel5.Controls.Add(this.lbLBX);
 			this.panel5.Controls.Add(this.lbUSA);
+			this.panel5.Controls.Add(this.panel7);
 			this.panel5.Location = new System.Drawing.Point(0, 27);
 			this.panel5.Name = "panel5";
-			this.panel5.Size = new System.Drawing.Size(813, 681);
+			this.panel5.Size = new System.Drawing.Size(813, 729);
 			this.panel5.TabIndex = 140;
+			// 
+			// panel6
+			// 
+			this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel6.Controls.Add(this.label23);
+			this.panel6.Controls.Add(this.panel8);
+			this.panel6.Controls.Add(this.btnSetRMFolderSource);
+			this.panel6.Controls.Add(this.rmSource);
+			this.panel6.Controls.Add(this.label17);
+			this.panel6.Location = new System.Drawing.Point(3, 621);
+			this.panel6.Name = "panel6";
+			this.panel6.Size = new System.Drawing.Size(809, 107);
+			this.panel6.TabIndex = 124;
+			// 
+			// label23
+			// 
+			this.label23.AutoSize = true;
+			this.label23.Location = new System.Drawing.Point(8, 74);
+			this.label23.Name = "label23";
+			this.label23.Size = new System.Drawing.Size(296, 13);
+			this.label23.TabIndex = 144;
+			this.label23.Text = "Music change will take effect on Stage pick after char select.";
+			// 
+			// panel8
+			// 
+			this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel8.Controls.Add(this.label21);
+			this.panel8.Controls.Add(this.label20);
+			this.panel8.Controls.Add(this.chRMActive);
+			this.panel8.Controls.Add(this.numRMTime);
+			this.panel8.Location = new System.Drawing.Point(446, -1);
+			this.panel8.Name = "panel8";
+			this.panel8.Size = new System.Drawing.Size(364, 107);
+			this.panel8.TabIndex = 146;
+			// 
+			// label21
+			// 
+			this.label21.AutoSize = true;
+			this.label21.Location = new System.Drawing.Point(5, 34);
+			this.label21.Name = "label21";
+			this.label21.Size = new System.Drawing.Size(44, 13);
+			this.label21.TabIndex = 146;
+			this.label21.Text = "Minutes";
+			// 
+			// label20
+			// 
+			this.label20.AutoSize = true;
+			this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label20.Location = new System.Drawing.Point(4, 3);
+			this.label20.Name = "label20";
+			this.label20.Size = new System.Drawing.Size(108, 20);
+			this.label20.TabIndex = 145;
+			this.label20.Text = "Timer settings";
+			// 
+			// numRMTime
+			// 
+			this.numRMTime.Location = new System.Drawing.Point(53, 32);
+			this.numRMTime.Maximum = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+			this.numRMTime.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numRMTime.Name = "numRMTime";
+			this.numRMTime.Size = new System.Drawing.Size(57, 20);
+			this.numRMTime.TabIndex = 0;
+			this.numRMTime.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numRMTime.ValueChanged += new System.EventHandler(this.numRMTime_ValueChanged);
+			// 
+			// chRMActive
+			// 
+			this.chRMActive.AutoSize = true;
+			this.chRMActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.chRMActive.Location = new System.Drawing.Point(116, 30);
+			this.chRMActive.Name = "chRMActive";
+			this.chRMActive.Size = new System.Drawing.Size(51, 24);
+			this.chRMActive.TabIndex = 145;
+			this.chRMActive.Text = "ON";
+			this.chRMActive.UseVisualStyleBackColor = true;
+			this.chRMActive.CheckedChanged += new System.EventHandler(this.chRMActive_CheckedChanged);
+			// 
+			// btnSetRMFolderSource
+			// 
+			this.btnSetRMFolderSource.Location = new System.Drawing.Point(7, 26);
+			this.btnSetRMFolderSource.Name = "btnSetRMFolderSource";
+			this.btnSetRMFolderSource.Size = new System.Drawing.Size(136, 44);
+			this.btnSetRMFolderSource.TabIndex = 126;
+			this.btnSetRMFolderSource.Text = "CSBs Source Folder";
+			this.btnSetRMFolderSource.UseVisualStyleBackColor = true;
+			this.btnSetRMFolderSource.Click += new System.EventHandler(this.btnSetRMFolderSource_Click);
+			// 
+			// rmSource
+			// 
+			this.rmSource.Location = new System.Drawing.Point(148, 39);
+			this.rmSource.Name = "rmSource";
+			this.rmSource.Size = new System.Drawing.Size(289, 20);
+			this.rmSource.TabIndex = 125;
+			// 
+			// label17
+			// 
+			this.label17.AutoSize = true;
+			this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label17.Location = new System.Drawing.Point(6, 4);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(254, 20);
+			this.label17.TabIndex = 143;
+			this.label17.Text = "Selected Stage Music Randomizer";
+			// 
+			// panel7
+			// 
+			this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel7.Controls.Add(this.label19);
+			this.panel7.Controls.Add(this.label16);
+			this.panel7.Controls.Add(this.UninstallMusicFile);
+			this.panel7.Controls.Add(this.btnPreview);
+			this.panel7.Location = new System.Drawing.Point(3, 545);
+			this.panel7.Name = "panel7";
+			this.panel7.Size = new System.Drawing.Size(809, 77);
+			this.panel7.TabIndex = 125;
+			// 
+			// label19
+			// 
+			this.label19.AutoSize = true;
+			this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label19.Location = new System.Drawing.Point(4, 2);
+			this.label19.Name = "label19";
+			this.label19.Size = new System.Drawing.Size(190, 20);
+			this.label19.TabIndex = 144;
+			this.label19.Text = "Install/Uninstall Music File";
 			// 
 			// label16
 			// 
 			this.label16.AutoSize = true;
 			this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label16.Location = new System.Drawing.Point(470, 572);
+			this.label16.Location = new System.Drawing.Point(448, 36);
 			this.label16.Name = "label16";
 			this.label16.Size = new System.Drawing.Size(24, 16);
 			this.label16.TabIndex = 122;
 			this.label16.Text = ">>";
+			// 
+			// UninstallMusicFile
+			// 
+			this.UninstallMusicFile.BackColor = System.Drawing.Color.Red;
+			this.UninstallMusicFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.UninstallMusicFile.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
+			this.UninstallMusicFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
+			this.UninstallMusicFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.UninstallMusicFile.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+			this.UninstallMusicFile.Location = new System.Drawing.Point(581, 19);
+			this.UninstallMusicFile.Name = "UninstallMusicFile";
+			this.UninstallMusicFile.Size = new System.Drawing.Size(92, 48);
+			this.UninstallMusicFile.TabIndex = 123;
+			this.UninstallMusicFile.Text = "Uninstall music (selected stage)";
+			this.UninstallMusicFile.UseVisualStyleBackColor = false;
+			this.UninstallMusicFile.Click += new System.EventHandler(this.UninstallMusicFile_Click);
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.ClientSize = new System.Drawing.Size(1262, 709);
+			this.ClientSize = new System.Drawing.Size(1262, 757);
 			this.Controls.Add(this.menuStrip1);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.panel5);
 			this.DoubleBuffered = true;
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "Form1";
-			this.Text = "USF4 Stage Music Mod Tool by BEAR";
+			this.Text = "USF4 Stage Music Mod Tool by BEAR v2.1";
 			((System.ComponentModel.ISupportInitialize)(this.BOS)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.BOS_EXT)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.SCX)).EndInit();
@@ -1640,6 +1878,13 @@
 			this.panel3.PerformLayout();
 			this.panel5.ResumeLayout(false);
 			this.panel5.PerformLayout();
+			this.panel6.ResumeLayout(false);
+			this.panel6.PerformLayout();
+			this.panel8.ResumeLayout(false);
+			this.panel8.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numRMTime)).EndInit();
+			this.panel7.ResumeLayout(false);
+			this.panel7.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1771,6 +2016,21 @@
 		private System.Windows.Forms.OpenFileDialog pickADXDialog;
 		private System.Windows.Forms.Label label16;
 		private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+		private System.Windows.Forms.Button UninstallMusicFile;
+		private System.Windows.Forms.Label label18;
+		private System.Windows.Forms.Panel panel6;
+		private System.Windows.Forms.Button btnSetRMFolderSource;
+		private System.Windows.Forms.TextBox rmSource;
+		private System.Windows.Forms.Label label17;
+		private System.Windows.Forms.Panel panel7;
+		private System.Windows.Forms.Label label19;
+		private System.Windows.Forms.CheckBox chRMActive;
+		private System.Windows.Forms.Panel panel8;
+		private System.Windows.Forms.Label label21;
+		private System.Windows.Forms.Label label20;
+		private System.Windows.Forms.NumericUpDown numRMTime;
+		private System.Windows.Forms.Label label22;
+		private System.Windows.Forms.Label label23;
 	}
 }
 
