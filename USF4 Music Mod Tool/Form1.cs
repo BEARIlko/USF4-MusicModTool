@@ -47,6 +47,8 @@ namespace USF4_Music_Mod_Tool
 
         private Timer RMTimer = new Timer();
 
+        public string ScrollSelected = "\\";
+
         public Form1()
         {
             RMTimer.Tick += new EventHandler(RMTimer_Tick);
@@ -77,6 +79,7 @@ namespace USF4_Music_Mod_Tool
                     InstallLocation.Text = settings[0];
                     tbSFAM.Text = settings[1];
                     rmSource.Text = settings[2];
+                    CSBsSourceFolder = rmSource.Text;
                 }
                 catch
                 {
@@ -263,8 +266,15 @@ namespace USF4_Music_Mod_Tool
 
         private void PickGameDir_Click(object sender, EventArgs e)
         {
-            folderPicker.ShowNewFolderButton = false;
+			//folderPicker.RootFolder = Environment.SpecialFolder.Desktop;
+			folderPicker.ShowNewFolderButton = false;
+            if (InstallLocation.Text.Trim() != string.Empty)
+			{
+                folderPicker.SelectedPath = InstallLocation.Text;
+                SendKeys.Send("{TAB}{TAB}{RIGHT}");
+			}
             folderPicker.ShowDialog();
+
             if (folderPicker.SelectedPath != "") InstallLocation.Text = folderPicker.SelectedPath;
             SetDirectory();
             SaveSettings();
@@ -493,6 +503,11 @@ namespace USF4_Music_Mod_Tool
 		private void btnSetRMFolderSource_Click(object sender, EventArgs e)
 		{
             folderPicker.ShowNewFolderButton = false;
+            if (CSBsSourceFolder.Trim() != string.Empty)
+			{
+                folderPicker.SelectedPath = CSBsSourceFolder;
+                SendKeys.Send("{TAB}{TAB}{RIGHT}");
+			}
             folderPicker.ShowDialog();
             if (folderPicker.SelectedPath != "")
             {
