@@ -271,7 +271,7 @@ namespace USF4_Music_Mod_Tool
             if (InstallLocation.Text.Trim() != string.Empty)
 			{
                 folderPicker.SelectedPath = InstallLocation.Text;
-                SendKeys.Send("{TAB}{TAB}{RIGHT}");
+				SendKeys.Send("{TAB}{TAB}{RIGHT}");
 			}
             folderPicker.ShowDialog();
 
